@@ -246,6 +246,7 @@ int passwordChecker2() {
 0893100
 07-01-2015
 
+Quiz Yourself:
 1A, 2B, 3A, 4C.
  */
 
@@ -364,6 +365,113 @@ int PracticeProblem3_3(){
 }
 
 
+int self5_1(){
+    //just learned about loops (do-while, for, while),
+    //trying to make some myself
+    string enteredPass;
+    string enteredPass2;
+    do{
+    cout << "Hey, enter the password: ";
+    getline(cin, enteredPass, '\n'); }
+    while (enteredPass != "realpassword");
+
+    cout << "\nGood job m8.\n";
+
+    //let's write that differently
+    cout << "\nAlright. Now another time.\nPlease enter the password: ";
+    getline(cin, enteredPass2, '\n');
+
+    while (enteredPass2 != "realpassword2") {
+        cout << "\n Wrong. Please enter the password: ";
+        getline(cin, enteredPass2, '\n');
+
+    }
+
+    cout << "You did it. Nice.";
+    return 0;
+}
+
+/* Jan van Dijke
+0893100
+30-01-2015
+
+Quiz Yourself
+1B, 2A, 3D, 4C
+ */
+
+ int PracticeProblem5_1() {
+ // 1. Write a program that prints out the entire lyrics to a full rendition of "99 bottles of beer"
+ //int bottlesOfBeer = 99;
+ for(int i = 99; i > 1;){
+    cout << i << " bottles of beer on the wall, " << i << " bottles of beer.";
+    i--;
+    cout << "\n Take one down, pass it around, " << i << " bottles of beer on the wall. \n";
+
+    if( i == 1)
+        cout << i << " bottle of beer. THE END.";
+    }
+
+
+    return 0;
+ }
+
+int PracticeProblem5_2() {
+//2. Write a menu program that lets the user select from a list of options, and if the input is not one of the options, reprint the list.
+    string choice;
+
+    do {
+        cout << "Hello. What is your age? Please select one of these options: \n1. Younger than 100. \n2. Older than 100.\n (Type 1 or 2 to continue.)";
+        getline(cin, choice, '\n');
+    }
+    while(choice != "1" && choice != "2");
+        cout << "Thanks.";
+
+
+    return 0;
+}
+
+int PracticeProblem5_3() {
+//3. Write a program that computes a running sum of inputs from the user, terminating when the user gives an input value of 0.
+    string entered;
+    cout << "You can enter anything you like, but if you enter 0 I'm gonna terminate.";
+    while(entered != "0"){
+    getline(cin, entered, '\n');
+    }
+    return 0;
+}
+
+
+//CHAPTER 6: FUNCTIONS begins here.
+
+int add(int x, int y){
+    return x + y;
+    }
+int self6_1(){
+
+
+
+    //Let's test arguments.
+
+    int result = add( 4124, 52352);
+
+    cout << result;
+
+    //Yeey. It works.
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -398,7 +506,12 @@ int main ()
     //PracticeProblem3_1();
     //PracticeProblem3_2();
     //passwordChecker2();
-    PracticeProblem3_3();
+    //PracticeProblem3_3();
+    //self5_1();
+    //PracticeProblem5_3();
+    self6_1();
     return 0;
 }
+
+
 

@@ -1,3 +1,12 @@
+/***************************************
+IF YOU WANT TO CHECK MY WORK, SCROLL
+DOWN AND IN THE main() FUNCTION UN-
+COMMENT THE FUNCTIONS YOU WANT TO TEST,
+THEN RUN. IT WILL LAUNCH THE UNCOMMENTED
+FUNCTIONS.
+
+
+***************************************/
 #include <iostream>
 #include <string>
 using namespace std;
@@ -9,9 +18,8 @@ using namespace std;
 After Chapter 1 and 2.
 "Quiz Yourself"
 1D, 2C, 3A, 4B, 5C, 6C.
-End of quiz. */
-
-
+End of quiz.
+*/
 
 // 1. Write a program that prints out your name.
 
@@ -202,7 +210,7 @@ int passwordChecker2() {
     char choice;
 
     //User picks characters.
-    cout << "Enter your username m8: \n";
+    cout << "Enter your username : \n";
     getline(cin, username, '\n');
     cout << "You have picked " << username << " as your username. Press Y to confirm." << endl;
     cin >> choice;
@@ -448,34 +456,173 @@ int add(int x, int y){
     }
 int self6_1(){
 
-
-
     //Let's test arguments.
 
     int result = add( 4124, 52352);
 
     cout << result;
 
-    //Yeey. It works.
+    //Yeey. It works. Well, it didn't in the first 10 tries, but now it does.
 
     return 0;
 }
 
+//Now the same function as above, but using a reference to it, first,
+//so that I can place the addNumber function underneath the self6_2 function.
+
+//the function prototype
+int addNumber(int x, int y);
+
+int self6_2(){
+    int finalNumber = addNumber(50,10);
+    cout << "The final number is :" << finalNumber;
+    return 0;
+}
+//the actual function
+int addNumber(int x, int y){
+    return x + y;
+}
 
 
+/* Jan van Dijke
+0893100
+04-02-15
+
+Quiz Yourself
+1B, 2B, 3C, 4B
+ */
+
+//1. Take the "menu program" you wrote earlier and break it out into
+//a series of calls to functions for each of the menu items.
+//Add the calculator and "100 bottles of beer" as two different functions that can be called.
+int PracticeProblem6_1(){
+    string chosenEntry;
+
+    do{
+    cout << "\nEnter 'bottles' for '100 bottles of beer',\nor enter 'calculator' for the Calculator: ";
+    getline(cin, chosenEntry, '\n');
+
+        if(chosenEntry == "bottles"){
+        PracticeProblem5_1();
+        }
+        else if(chosenEntry == "calculator") {
+        PracticeProblem3_3();
+        }
+
+        else{
+        cout << "\nthat entry does not exist. confirm that it's exactly the same as prompted.";
+        }
+
+    }
+
+    while(chosenEntry != "bottles" && chosenEntry != "calculator" );
+
+    return 0;
+}
+int calculate(int number, int number2, char operation);
+int PracticeProblem6_2(){
+//2. Make your calculator program perform computations in a separate function.
+    int number1;
+    int number2;
+    char chosenOperation;
+
+    cout << "Enter a number, please: ";
+    cin >> number1;
+    cout << "Enter number 2, please: ";
+    cin >> number2;
+    cout << "\nYou have chosen " << number1 << " and " << number2 << endl;
+    cout << "Enter an operation, please: ";
+    cin >> chosenOperation;
+
+    int calculatedResult = calculate(number1, number2, chosenOperation);
+
+    cout << "The result is: " << calculatedResult << endl;
+
+    return 0;
+}
+
+int calculate(int number, int secondNumber, char operation){
+    int result;
+
+    if(operation == '*')
+        result = number * secondNumber;
+    else if(operation == '+')
+        result = number + secondNumber;
+    else if(operation == '-')
+        result = number - secondNumber;
+    else if(operation == '/')
+        result = number / secondNumber;
+
+    return result;
+}
+
+//3. Modify your password program from before to put all of the password checking logic 
+//	 into a separate function, apart from the rest of the program. 
+int checkPassword(int enteredPass, int firstPass, int secondPass);
+int PracticeProblem6_3(){
+	
+	int enteredPassword;
+	int password1 = 1;
+	int password2 = 2;
+
+	cout << "\n\nPractice Problem 6.3. \n\n";
+	cout << "Enter password('1' or '2'):  ";
+	cin >> enteredPassword;
+	checkPassword(enteredPassword, password1, password2);
+
+	return 0;
+}
+
+int checkPassword(int enteredPass, int firstPass, int secondPass){
+
+	if (enteredPass == firstPass || enteredPass == secondPass){
+		cout << "\nCorrect password. \n";
+	}
+
+	else{
+		cout << "\nThat is not the correct password. \n";
+	}
+
+	return 0;
+}
 
 
+/* Jan van Dijke
+0893100
+08-02-15
+
+Na Enums en Switch
+Quiz Yourself
+1A, 2B, 3C, 4D
+*/
+
+//1. Rewrite the menu program you wrote using a switch-case.
+int PracticeProblem8_1(){
+	int choice;
+		cout << "\nHello! Please enter 1, 2, or 3. \nEntering one of these numbers will return that same number.\n";
+		cin >> choice;
+
+		switch (choice){
+		case 1:
+			cout << "\nYES, YOU DID IT: 1";
+			break;
+		case 2:
+			cout << "\nYES, YOU DID IT: 2";
+			break;
+		case 3:
+			cout << "\nYES, YOU DID IT: 3";
+			break;
+		default:
+			cout << "\nSigh. Wrong.\n\n";
+		}
+	
+
+	cout << "\n\nTerminating this program...\n";
+	system("pause");
 
 
-
-
-
-
-
-
-
-
-
+	return 0;
+}
 
 
 
@@ -487,29 +634,45 @@ int self6_1(){
 THIS IS ALWAYS AT THE BOTTOM OF THIS FILE
    ***************************************
 */
+
+
 //Since main() is executed first, it needs to contain all the code that I'm going to run.
 int main ()
 {
+	
 
     //PracticeProblem1_1();
     //PracticeProblem1_2();
     //PracticeProblem1_3();
-    //Self1_1_Strings();
+   
     //PracticeProblem2_1();
     //PracticeProblem2_2();
     //PracticeProblem2_3();
-    //self2();
+   
+	//PracticeProblem3_1();
+	//PracticeProblem3_2();
+	//PracticeProblem3_3();
 
-    //passwordChecker();
-    //booleanAnd();
-    //booleanOr();
-    //PracticeProblem3_1();
-    //PracticeProblem3_2();
-    //passwordChecker2();
-    //PracticeProblem3_3();
-    //self5_1();
-    //PracticeProblem5_3();
-    self6_1();
+    //PracticeProblem5_1();
+	//PracticeProblem5_2();
+	//PracticeProblem5_3();
+   
+    //PracticeProblem6_1();
+	//PracticeProblem6_2();
+	//PracticeProblem6_3();
+
+	//PracticeProblem8_1();
+
+	//YOU CAN IGNORE THESE, I WROTE THESE TO TEST MY KNOWLEDGE
+	//Self1_1_Strings();
+	//self2();
+	//self5_1();
+	//self6_1();
+	//self6_2();
+
+	//passwordChecker();
+	//passwordChecker2();
+
     return 0;
 }
 
